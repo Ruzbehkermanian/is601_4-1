@@ -37,7 +37,9 @@ $statement->closeCursor();
 			<?php echo $category['categoryName'];?>
 		</td>
 
-	<td> <input type="submit" value="Delete"> </td>
+	<td><form action='delete_category.php' method='post' id='delete_category.php'>
+	    <input type='hidden' name='category_name' value='<?php echo $category['categoryName']; ?>'>
+	    <input type="submit" value="Delete"></form> </td>
 	</tr>
 
 	<?php endforeach; ?>
@@ -50,15 +52,16 @@ $statement->closeCursor();
     
     <!-- add code for the form here -->
 
+	 <form action="add_category.php" method = "post"
+		id="category_list"> 
+
 	<label>Name:</label>
-	<input type="text" name="name">
+	<input type="text" name="category_name">
 
 	 <label>&nbsp;</label>
 	<input type="submit" value="Add"><br>
 	
-
-
-
+	</form>
 
     <br>
     <p><a href="index.php">List Products</a></p>
